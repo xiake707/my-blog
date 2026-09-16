@@ -1,0 +1,32 @@
+{{- define "main" }}
+
+<header class="page-header project-page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <p class="section-kicker">Engineering practice</p>
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}<p>{{ . }}</p>{{ end }}
+</header>
+
+{{- with .Content }}
+<div class="project-intro post-content md-content">{{ . }}</div>
+{{- end }}
+
+<div class="projects-list">
+  {{- range .Pages.ByWeight }}
+  <article class="project-list-item">
+    <div class="project-card-top">
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{- with .Params.status }}<span class="project-status">{{ . }}</span>{{ end }}
+    </div>
+    <p>{{ .Description }}</p>
+    {{- with .Params.tech }}
+    <ul class="tech-list" aria-label="技术栈">
+      {{- range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{- end }}
+    <a class="project-more" href="{{ .RelPermalink }}">查看项目详情 →</a>
+  </article>
+  {{- end }}
+</div>
+
+{{- end }}

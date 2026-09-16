@@ -1,0 +1,107 @@
+{{- define "main" }}
+
+<div class="brand-home">
+  <section class="brand-hero" aria-labelledby="hero-title">
+    <p class="brand-eyebrow">SRE · DevOps · Cloud Native</p>
+    <h1 id="hero-title">构建稳定、可观测、可持续交付的系统</h1>
+    <p class="brand-lead">我是 Xiake707，关注 Linux、Go、Kubernetes、CI/CD 与自动化运维。这里分享经过整理和验证的技术文章与工程实践。</p>
+    <div class="brand-actions">
+      <a class="brand-button brand-button-primary" href="{{ "posts/" | relLangURL }}">阅读文章</a>
+      <a class="brand-button" href="{{ "projects/" | relLangURL }}">查看项目</a>
+      <a class="brand-text-link" href="https://github.com/xiake707" rel="noopener noreferrer" target="_blank">GitHub ↗</a>
+    </div>
+    <ul class="focus-list" aria-label="技术方向">
+      <li>Linux</li>
+      <li>Go</li>
+      <li>Kubernetes</li>
+      <li>CI/CD</li>
+      <li>Observability</li>
+    </ul>
+  </section>
+
+  {{- $featured := where site.RegularPages "Params.featured" true }}
+  {{- $featured = where $featured "Section" "posts" }}
+  {{- with first 3 $featured.ByDate.Reverse }}
+  <section class="home-section" id="featured" aria-labelledby="featured-title">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">Selected writing</p>
+        <h2 id="featured-title">精选文章</h2>
+      </div>
+      <a href="{{ "posts/" | relLangURL }}">全部文章 →</a>
+    </div>
+    <div class="featured-list">
+      {{- range . }}
+      <article class="featured-item">
+        <div class="featured-meta">
+          {{- with index (.GetTerms "categories") 0 }}<span>{{ .LinkTitle }}</span>{{ end }}
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        </div>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Description | default (.Summary | plainify) }}</p>
+      </article>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{- $projects := where site.RegularPages "Section" "projects" }}
+  {{- with first 2 $projects.ByWeight }}
+  <section class="home-section" aria-labelledby="projects-title">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">Engineering practice</p>
+        <h2 id="projects-title">项目实践</h2>
+      </div>
+      <a href="{{ "projects/" | relLangURL }}">全部项目 →</a>
+    </div>
+    <div class="project-grid">
+      {{- range . }}
+      <article class="project-card">
+        <div class="project-card-top">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{- with .Params.status }}<span class="project-status">{{ . }}</span>{{ end }}
+        </div>
+        <p>{{ .Description }}</p>
+        {{- with .Params.tech }}
+        <ul class="tech-list" aria-label="技术栈">
+          {{- range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{- end }}
+      </article>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  {{- $latest := where site.RegularPages "Section" "posts" }}
+  {{- with first 4 $latest.ByDate.Reverse }}
+  <section class="home-section" aria-labelledby="latest-title">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">Latest updates</p>
+        <h2 id="latest-title">最新文章</h2>
+      </div>
+      <a href="{{ "archives/" | relLangURL }}">文章归档 →</a>
+    </div>
+    <div class="latest-list">
+      {{- range . }}
+      <article>
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      </article>
+      {{- end }}
+    </div>
+  </section>
+  {{- end }}
+
+  <section class="home-cta" aria-label="了解更多">
+    <div>
+      <p class="section-kicker">About this site</p>
+      <h2>用公开输出检验理解，用工程实践连接知识。</h2>
+    </div>
+    <a class="brand-button" href="{{ "about/" | relLangURL }}">关于我</a>
+  </section>
+</div>
+
+{{- end }}

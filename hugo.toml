@@ -1,4 +1,95 @@
 baseURL = 'https://xiake707.github.io/my-blog/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+locale = 'zh-CN'
+defaultContentLanguage = 'zh'
+title = 'Xiake707 · SRE / DevOps / 云原生'
 theme = 'PaperMod'
+timeZone = 'Asia/Shanghai'
+hasCJKLanguage = true
+
+enableRobotsTXT = true
+enableEmoji = true
+capitalizeListTitles = false
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = 'Xiake707'
+  description = '面向 SRE、DevOps 与云原生方向的个人技术博客，分享 Linux、Go、Kubernetes、CI/CD、可观测性与工程实践。'
+  keywords = ['SRE', 'DevOps', '云原生', 'Linux', 'Go', 'Kubernetes', 'CI/CD']
+  images = ['images/og-default.png']
+  mainSections = ['posts']
+
+  defaultTheme = 'auto'
+  disableThemeToggle = false
+  disableSpecial1stPost = true
+
+  ShowReadingTime = true
+  ShowWordCount = true
+  ShowShareButtons = true
+  ShareButtons = ['linkedin', 'x']
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  TocOpen = false
+  ShowRssButtonInSectionTermList = true
+
+  [params.label]
+    text = 'Xiake707'
+
+  [params.schema]
+    publisherType = 'Person'
+    sameAs = ['https://github.com/xiake707']
+
+  [params.assets]
+    favicon = 'favicon-32x32.png'
+    favicon16x16 = 'favicon-16x16.png'
+    favicon32x32 = 'favicon-32x32.png'
+    apple_touch_icon = 'apple-touch-icon.png'
+    theme_color = '#2563eb'
+    msapplication_TileColor = '#2563eb'
+
+  [[params.socialIcons]]
+    name = 'github'
+    title = 'GitHub'
+    url = 'https://github.com/xiake707'
+
+[[menu.main]]
+  identifier = 'posts'
+  name = '文章'
+  url = '/posts/'
+  weight = 10
+
+[[menu.main]]
+  identifier = 'categories'
+  name = '分类'
+  url = '/categories/'
+  weight = 20
+
+[[menu.main]]
+  identifier = 'tags'
+  name = '标签'
+  url = '/tags/'
+  weight = 30
+
+[[menu.main]]
+  identifier = 'projects'
+  name = '项目'
+  url = '/projects/'
+  weight = 40
+
+[[menu.main]]
+  identifier = 'about'
+  name = '关于'
+  url = '/about/'
+  weight = 50
+
+[[menu.main]]
+  identifier = 'search'
+  name = '搜索'
+  url = '/search/'
+  weight = 60

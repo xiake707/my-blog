@@ -1,0 +1,8 @@
+{{- with .GetTerms "categories" }}
+<aside class="post-categories" aria-label="文章分类">
+  <span>分类</span>
+  {{- range . }}
+  <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+  {{- end }}
+</aside>
+{{- end }}

@@ -328,6 +328,41 @@ body {
     font-weight: 600;
 }
 
+.project-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.project-title-row h1 {
+    margin-bottom: 0.75rem;
+}
+
+.project-overview {
+    margin-top: 1.5rem;
+}
+
+.project-documents {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+}
+
+.project-document-item .entry-footer {
+    margin-top: 0.75rem;
+}
+
+.document-count {
+    flex: none;
+    color: var(--secondary);
+    font-size: 0.8rem;
+}
+
+.empty-state {
+    color: var(--secondary);
+}
+
 .post-single {
     font-size: 17px;
 }
@@ -459,6 +494,10 @@ body {
     .home-cta {
         align-items: start;
         flex-direction: column;
+    }
+
+    .project-title-row {
+        align-items: start;
     }
 
     .post-title {

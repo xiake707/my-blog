@@ -12,7 +12,7 @@ tags:
   - Scheduler
   - kubelet
 featured: true
-showToc: true
+showToc: false
 ---
 
 理解 Kubernetes 的关键，不是孤立地记住组件名称，而是弄清楚一个声明从提交到落地，究竟经过了哪些控制环节。

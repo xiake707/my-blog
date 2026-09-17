@@ -45,8 +45,12 @@
   </section>
   {{- end }}
 
-  {{- $projects := where site.RegularPages "Section" "projects" }}
-  {{- with first 2 $projects.ByWeight }}
+  {{- $projectsRoot := site.GetPage "section" "projects" }}
+  {{- $projects := slice }}
+  {{- with $projectsRoot }}
+    {{- $projects = .Sections.ByWeight }}
+  {{- end }}
+  {{- with first 2 $projects }}
   <section class="home-section" aria-labelledby="projects-title">
     <div class="section-heading">
       <div>

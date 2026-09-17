@@ -1,0 +1,58 @@
+{{- define "main" }}
+
+<article class="project-hub">
+  <header class="page-header project-page-header">
+    {{- partial "breadcrumbs.html" . }}
+    <p class="section-kicker">Project overview</p>
+
+    <div class="project-title-row">
+      <h1>{{ .Title }}</h1>
+      {{- with .Params.status }}
+      <span class="project-status">{{ . }}</span>
+      {{- end }}
+    </div>
+
+    {{- with .Description }}
+    <p>{{ . }}</p>
+    {{- end }}
+
+    {{- with .Params.tech }}
+    <ul class="tech-list" aria-label="技术栈">
+      {{- range . }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    {{- end }}
+  </header>
+
+  {{- with .Content }}
+  <div class="project-overview post-content md-content">
+    {{ . }}
+  </div>
+  {{- end }}
+
+  <section class="project-documents" aria-labelledby="project-documents-title">
+    <div class="section-heading">
+      <div>
+        <p class="section-kicker">Documentation</p>
+        <h2 id="project-documents-title">项目文档</h2>
+      </div>
+      <span class="document-count">{{ len .RegularPages }} 篇</span>
+    </div>
+
+    <div class="projects-list">
+      {{- range .RegularPages.ByWeight }}
+      <article class="project-list-item project-document-item">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{- with .Description }}<p>{{ . }}</p>{{ end }}
+        <div class="entry-footer">
+          {{- partial "post_meta.html" . }}
+        </div>
+        <a class="project-more" href="{{ .RelPermalink }}">阅读文档 →</a>
+      </article>
+      {{- else }}
+      <p class="empty-state">该项目暂时还没有公开文档。</p>
+      {{- end }}
+    </div>
+  </section>
+</article>
+
+{{- end }}

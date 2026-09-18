@@ -36,3 +36,6 @@ disableShare: true
 ## 联系与代码
 
 - [GitHub：xiake707](https://github.com/xiake707)
+- 电话：13849717422
+- 邮箱: 13849717422@163.com
+- 微信：Wang1422546608

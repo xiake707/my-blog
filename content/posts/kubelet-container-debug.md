@@ -1,7 +1,7 @@
 ---
-title: "Debug for error of pod with 'ImagePullBackOff'"
-date: 2026-09-16
-lastmod: 2026-09-16
+title: "Debug for error of pod with ImagePullBackOff"
+date: 2026-09-19
+lastmod: 2026-09-19
 draft: false
 description: "使用kubelet describe 定位错误详情，一步一步验证，定位问题原因"
 categories:
@@ -15,6 +15,7 @@ tags:
 featured: true
 showToc: true
 ---
+
 首先执行下面的命令确定当前的状态
 
 ```shell
